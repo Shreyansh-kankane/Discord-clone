@@ -3,15 +3,15 @@ import { redirect } from "next/navigation";
 import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "../ui/seperator";
+import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 
 import { ServerHeader } from "./server-header";
-// import { ServerSearch } from "./server-search";
+import { ServerSearch } from "./server-search";
 import { ServerSection } from "./server-section";
 import { ServerChannel } from "./server-channel";
-// import { ServerMember } from "./server-member";
+import { ServerMember } from "./server-member";
 
 interface ServerSidebarProps {
   serverId: string;
@@ -84,7 +84,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
     <div className="flex flex-col h-full text-primary w-full dark:bg-[#2B2D31] bg-[#F2F3F5]">
       <ServerHeader server={server} role={role} />
       <ScrollArea className="flex-1 px-3">
-        {/* <div className="mt-2">
+        <div className="mt-2">
           <ServerSearch
             data={[
               {
@@ -125,7 +125,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
               },
             ]}
           />
-        </div> */}
+        </div>
         <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2" />
         {!!textChannels?.length && (
           <div className="mb-2">
@@ -197,8 +197,7 @@ export const ServerSidebar = async ({ serverId }: ServerSidebarProps) => {
             />
             <div className="space-y-[2px]">
               {members.map((member) => (
-                <div></div>
-                // <ServerMember key={member.id} member={member} server={server} />
+                <ServerMember key={member.id} member={member} server={server} />
               ))}
             </div>
           </div>

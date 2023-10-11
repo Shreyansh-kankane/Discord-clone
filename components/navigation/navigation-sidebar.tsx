@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import { Separator } from "../ui/seperator";
+import { Separator } from "@/components/ui/separator";
 
 
 import { ScrollArea } from "@/components/ui/scroll-area";
